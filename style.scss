@@ -4,6 +4,9 @@
 }
 
 body {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: overlay;
   overflow-x: hidden;
 }
 
@@ -184,20 +187,24 @@ textarea {
 
 @keyframes menu-close {
   from {
+    position: absolute;
     right: 0px;
   }
-  
+
   to {
+    position: absolute;
     right: -310px;
   }
 }
 
 @keyframes menu-open {
   from {
+    position: absolute;
     right: -310px;
   }
-
+  
   to {
+    position: absolute;
     right: 0px;
   }
 }
@@ -218,14 +225,15 @@ textarea {
   #div {
     /* width: 50vw; */
     /* display: none; */
-    display: flex;
+    // display: flex;
+    display: none;
     padding: 58px 5px;
     flex-direction: column;
     top: 0px;
     position: absolute;
     height: 100vh;
     /* font-size: 92px; */
-    right: -310px;
+    // right: -310px;
     background: #343a40;
 
     #close-burger-li {
@@ -295,5 +303,11 @@ textarea {
       -ms-flex-align: center;
       align-items: center;
     }
+  }
+}
+
+@media only screen and (min-width: 923px) {
+  #div {
+    display: flex;
   }
 }

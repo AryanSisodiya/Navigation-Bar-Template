@@ -4,6 +4,9 @@
 }
 
 body {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: overlay;
   overflow-x: hidden;
 }
 
@@ -224,36 +227,44 @@ textarea {
 
 @-webkit-keyframes menu-close {
   from {
+    position: absolute;
     right: 0px;
   }
   to {
+    position: absolute;
     right: -310px;
   }
 }
 
 @keyframes menu-close {
   from {
+    position: absolute;
     right: 0px;
   }
   to {
+    position: absolute;
     right: -310px;
   }
 }
 
 @-webkit-keyframes menu-open {
   from {
+    position: absolute;
     right: -310px;
   }
   to {
+    position: absolute;
     right: 0px;
   }
 }
 
 @keyframes menu-open {
   from {
+    position: absolute;
     right: -310px;
   }
   to {
+    position: absolute;
     right: 0px;
   }
 }
@@ -273,9 +284,7 @@ textarea {
   #div {
     /* width: 50vw; */
     /* display: none; */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     padding: 58px 5px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -285,7 +294,6 @@ textarea {
     position: absolute;
     height: 100vh;
     /* font-size: 92px; */
-    right: -310px;
     background: #343a40;
   }
   #div #close-burger-li {
@@ -353,6 +361,14 @@ textarea {
     -ms-flex-align: center;
     -webkit-box-align: center;
             align-items: center;
+  }
+}
+
+@media only screen and (min-width: 923px) {
+  #div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,420 @@
+<!-- This is the main HTML file (index.html) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            min-width: 100vw;
+            overflow: overlay;
+            overflow-x: hidden;
+        }
+
+        input,
+        textarea {
+            outline: none;
+        }
+
+        #nav_list {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 7px 12px;
+            /* justify-content: center; */
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-left: 0;
+        }
+
+        .nav_link {
+            list-style: none;
+            padding: 0px 9px;
+        }
+
+        .nav_link a {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            text-decoration: none;
+            color: red;
+            font-size: 20px;
+            padding: 10px;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: #343a40 !important;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            /* opacity: 0.5; */
+            z-index: -1;
+            position: absolute;
+        }
+
+        #navbar {
+            height: 100%;
+            font-family: "Bree Serif", serif;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+        }
+
+        /* 
+  body::before {
+      content: "";
+      background-image: url('bg.jpg');
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+      z-index: -1;
+      position: absolute;
+  } */
+        .link_a:hover {
+            background-color: white;
+            border-radius: 4px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .link_a:active {
+            background-color: #0059ff;
+            color: yellowgreen;
+        }
+
+        #searchbox {
+            /* position: absolute; */
+            /* top: 0px; */
+            /* right: 0px; */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 50px;
+            /* margin-right: 60px; */
+            /* padding: 12px 60px; */
+        }
+
+        #search {
+            padding: 6px;
+            font-size: 18px;
+            font-family: "Bree Serif", serif;
+            width: 300px;
+            background-color: transparent;
+            border: 2px solid palegreen;
+            /* border-bottom: palegreen; */
+            border-radius: 5px;
+            color: white;
+        }
+
+        #search::-webkit-input-placeholder {
+            font-family: "Bree Serif", serif;
+            color: wheat;
+        }
+
+        #search:-ms-input-placeholder {
+            font-family: "Bree Serif", serif;
+            color: wheat;
+        }
+
+        #search::-ms-input-placeholder {
+            font-family: "Bree Serif", serif;
+            color: wheat;
+        }
+
+        #search::placeholder {
+            font-family: "Bree Serif", serif;
+            color: wheat;
+        }
+
+        #search-icon-list {
+            /* position: absolute;
+      top: 4px;
+      right: 8px; */
+            height: 212px;
+        }
+
+        #search-icon {
+            position: absolute;
+            top: 3px;
+            background-color: white;
+            border-radius: 5px;
+            height: 39px;
+            list-style: none;
+            padding: 2px;
+        }
+
+        #search-icon:hover {
+            background-color: #e9e4db;
+        }
+
+        #search-icon:active {
+            background-color: #beb8aa;
+        }
+
+        #search-icon-list {
+            list-style: none;
+            height: 43px;
+            padding-left: 10px;
+            /* padding: 0 7px; */
+            width: 43px;
+        }
+
+        #search-box_div {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            /* width: 521px; */
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+        }
+
+        #logo {
+            border-radius: 45px;
+            height: 40px;
+            border: 2px solid #bbadad;
+        }
+
+        #nav_link-0 {
+            padding-right: 0;
+        }
+
+        #div {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        #navbar ul #open-burger-li {
+            display: none;
+            list-style: none;
+            cursor: pointer;
+        }
+
+        #navbar ul #open-burger-li:hover {
+            -webkit-filter: opacity(36%);
+            filter: opacity(36%);
+        }
+
+        #navbar ul #open-burger-li:active {
+            -webkit-filter: brightness(90%);
+            filter: brightness(90%);
+        }
+
+        #close-burger-li {
+            display: none;
+        }
+
+        @-webkit-keyframes menu-close {
+            from {
+                position: absolute;
+                right: 0px;
+            }
+
+            to {
+                position: absolute;
+                right: -310px;
+            }
+        }
+
+        @keyframes menu-close {
+            from {
+                position: absolute;
+                right: 0px;
+            }
+
+            to {
+                position: absolute;
+                right: -310px;
+            }
+        }
+
+        @-webkit-keyframes menu-open {
+            from {
+                position: absolute;
+                right: -310px;
+            }
+
+            to {
+                position: absolute;
+                right: 0px;
+            }
+        }
+
+        @keyframes menu-open {
+            from {
+                position: absolute;
+                right: -310px;
+            }
+
+            to {
+                position: absolute;
+                right: 0px;
+            }
+        }
+
+        @media only screen and (max-width: 810px) {
+            #open-burger-li {
+                display: block !important;
+                -webkit-filter: invert(1) !important;
+                filter: invert(1) !important;
+                height: 48px !important;
+                cursor: pointer;
+                position: fixed;
+                right: 29px;
+                top: 5px;
+            }
+
+            #open-burger-li img {
+                height: inherit;
+            }
+
+            #open-burger-li img:hover {
+                -webkit-filter: invert(30%);
+                filter: invert(30%);
+            }
+
+            #open-burger-li img:active {
+                -webkit-filter: invert(50%);
+                filter: invert(50%);
+            }
+
+            #div {
+                position: fixed;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                height: 100vh;
+                top: 0;
+                background: #343a40;
+                padding: 60px 16px;
+                right: -336px;
+                -webkit-transition: right 0.5s ease-in-out;
+                transition: right 0.5s ease-in-out;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            #div #search-box_div {
+                position: static;
+            }
+
+            #div #close-burger-li {
+                display: block;
+                opacity: 0;
+                pointer-events: none;
+                -webkit-filter: invert(1);
+                filter: invert(1);
+                height: 50px;
+                cursor: pointer;
+            }
+
+            #div #close-burger-li img {
+                height: inherit;
+            }
+
+            #div .nav_link {
+                padding: 0;
+            }
+
+            .show-div {
+                right: 0px !important;
+                pointer-events: all !important;
+            }
+        }
+
+        /*# sourceMappingURL=style.css.map */
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Navigation</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul id="nav_list">
+            <li class="nav_link" id="nav_link-0"><img src="https://lh3.google.com/u/0/d/18kQLAzU8NHbR2NyvmD_c4HMtm6o1Iojw=w200-h190-p-k-nu-iv1" alt="Welcome to Application Aryan Official"
+                    id="logo"></li> <!-- You can Use Any other better image for logo-->
+            <!-- <li id="open-burger-li">
+                        <span class="material-icons-outlined" id="open-burger">
+                            menu
+                        </span> -->
+            </li>
+            <div id="div">
+                <li id="close-burger-li">
+                    <!-- <img src="SVG/menu-open.svg" alt="Close Menu" id="close-burger"> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="white" id="close-burger">
+                        <path d="M0,0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M3,18h13v-2H3V18z M3,13h10v-2H3V13z M3,6v2h13V6H3z M21,15.59L17.42,12L21,8.41L19.59,7l-5,5l5,5L21,15.59z" />
+                    </svg>
+                </li>
+                <li class="nav_link" id="nav_link-1"><a href="#" class="link_a">Home</a></li>
+                <li class="nav_link" id="nav_link-2"><a href="#" class="link_a">Servies</a></li>
+                <li class="nav_link" id="nav_link-3"><a href="#contact" class="link_a">Contact Us</a></li>
+                <li class="nav_link" id="nav_link-4"><a href="#about" class="link_a">About Us</a></li>
+                <div id="search-box_div">
+
+                    <!-- <li id="search-icon-list"><a href=""><img src="search.png" alt="search" id="search-icon"></a></li> -->
+                    <li id="searchbox">
+                        <form action="">
+                            <input type="search" id="search" placeholder="Type Here To search">
+                        </form>
+                    </li>
+                </div>
+            </div>
+            <li id="open-burger-li">
+                <!-- <img src="SVG/hamburger.svg" alt="Hamburger" id="open-burger"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="black"
+                id="open-burger">
+                    <path d="M0 0h24v24H0V0z" fill="none"/>
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                </svg>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <script>
+        let div = document.getElementById('div');
+
+        // Open Burger
+        let openBtn = document.getElementById('open-burger');
+        openBtn.addEventListener('click', () => {
+            div.classList.toggle('show-div');
+        })
+    </script>
+</body>
+
+</html>

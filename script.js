@@ -1,6 +1,5 @@
-let div = document.getElementById('div');
 
-// Close Burger
+/* // Close Burger
 let closeBtn = document.getElementById('close-burger-li')
 closeBtn.addEventListener('click', () => {
     div.style.animation = 'menu-close 1s ease-in-out';
@@ -18,7 +17,15 @@ openBtn.addEventListener('click', () => {
     div.style.right = '0px';
     // div.style.transition = '1s ease-in-out'
     // setTimeout(() => {
-    //     div.style.display = 'flex'
-    // }, 1000);
-})
+        //     div.style.display = 'flex'
+        // }, 1000);
+    }) */
 
+
+let div = document.getElementById('div');
+
+// Open Burger
+let openBtn = document.getElementById('open-burger');
+openBtn.addEventListener('click', () => {
+    div.classList.toggle('show-div');
+});
